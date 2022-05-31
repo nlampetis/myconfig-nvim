@@ -10,7 +10,7 @@ require("indent_blankline").setup {
 }
 
 
-vim.g.indent_blankline_bufname_exclude = 'startify'
-vim.g.indent_blankline_filetype_exclude = 'startify'
+-- vim.g.indent_blankline_bufname_exclude = 'startify'
+-- vim.g.indent_blankline_filetype_exclude = 'startify'
 
 

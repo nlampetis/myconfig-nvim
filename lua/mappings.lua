@@ -1,5 +1,6 @@
 -- general mappings
-vim.api.nvim_set_keymap("n", "<space>", "<nop>", {noremap = true}) -- map nothing to leader key (space)
+vim.api.nvim_set_keymap("n", " ", "<Nop>", {}) -- map nothing to leader key (space)
+vim.api.nvim_set_keymap("v", " ", "<Nop>", {}) -- map nothing to leader key (space)
 vim.api.nvim_set_keymap("i", "jk", "<esc>", {noremap = true}) -- map jk to esc
 
 vim.api.nvim_set_keymap("n", "<leader>q", ":q<cr>", {noremap = true}) -- safe quit

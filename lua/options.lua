@@ -3,7 +3,7 @@ local api = vim.api
 local opt = vim.opt
 local g = vim.g
 
-local themes = {'dracula', 'gruvbox', 'onedark'}
+local themes = { 'dracula', 'gruvbox', 'onedark' }
 
 
 -- use theme 1, 2, 3, ...
@@ -17,17 +17,19 @@ g.did_load_filetypes = 0
 g.do_filetype_lua = 1
 g.toggle_theme_icon = "   "
 
+-- vim.cmd("set filetype true")
 -- airline globals
 g.airline_theme = themes[1]
-g.airline_powerline_fonts=1
+g.airline_powerline_fonts = 1
 vim.cmd("let g:airline#extensions#tabline#enabled = 1")
 vim.cmd("let g:airline#extensions#tabline#formatter = 'unique_tail'")
 
-vim.cmd("hi Pmenu guibg=none")
-vim.cmd("hi NormalFloat guibg=none")
+-- vim.cmd("hi Pmenu guibg=none")
+-- vim.cmd("hi NormalFloat guibg=none")
 
 opt.confirm = true
 opt.laststatus = 3 -- global statusline
+
 
 
 opt.title = true
@@ -41,12 +43,12 @@ opt.expandtab = true
 opt.shiftwidth = 2
 opt.smartindent = true
 
--- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
+-- disable eof tilde
 opt.fillchars = { eob = " " }
 
 -- font
 -- opt.guifont= "3270Narrow NF:h12:w60"
-opt.guifont= "Hack:h12:w60"
+opt.guifont = "Hack:h10:w60"
 
 --
 opt.hidden = true
@@ -77,31 +79,31 @@ opt.updatetime = 250
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append "<>[]hl"
-g.mapleader = " "
+g.mapleader = ' '
 
 
 
 local default_plugins = {
-	"2html_plugin",
-	"getscript",
-	"getscriptPlugin",
-	"gzip",
-	"logipat",
-	"netrw",
-	"netrwPlugin",
-	"netrwSettings",
-	"netrwFileHandlers",
-	"matchit",
-	"tar",
-	"tarPlugin",
-	"rrhelper",
-	"spellfile_plugin",
-	"vimball",
-	"vimballPlugin",
-	"zip",
-	"zipPlugin",
+  "2html_plugin",
+  "getscript",
+  "getscriptPlugin",
+  "gzip",
+  "logipat",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "matchit",
+  "tar",
+  "tarPlugin",
+  "rrhelper",
+  "spellfile_plugin",
+  "vimball",
+  "vimballPlugin",
+  "zip",
+  "zipPlugin",
 }
 
 for _, plugin in pairs(default_plugins) do
-	g["loaded_" .. plugin] = 1
+  g["loaded_" .. plugin] = 1
 end

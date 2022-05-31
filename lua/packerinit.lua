@@ -30,11 +30,11 @@ return require('packer').startup(function()
         -- which key
         use {"folke/which-key.nvim", as = 'whichkey',
         config = function()
-            require("which-key").setup {
+           require("which-key").setup {
               -- your configuration comes here
               -- or leave it empty to use the default settings
               -- refer to the configuration section below
-            }
+           }
           end
         }
 
@@ -67,7 +67,7 @@ return require('packer').startup(function()
 
         -- blankline indent
         use {'lukas-reineke/indent-blankline.nvim'}
-        
+
         -- tagbar
         use {'preservim/tagbar'}
 
@@ -86,5 +86,9 @@ return require('packer').startup(function()
         use{
           "emilienlemaire/clang-tidy.nvim"
         }
+
+        use { "preservim/nerdcommenter", as = "nerdcommenter"}
+
+        use {"kkoomen/vim-doge", as="vimdoge"}
 end)
 

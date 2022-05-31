@@ -7,9 +7,8 @@ end
 -- globals must be set prior to requiring nvim-tree to function
 local g = vim.g
 
-g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
-g.nvim_tree_git_hl = 1
-g.nvim_tree_highlight_opened_files = 0
+-- g.nvim_tree_git_hl = 1
+-- g.nvim_tree_highlight_opened_files = 0
 
 g.nvim_tree_show_icons = {
    folders = 1,
@@ -64,7 +63,7 @@ local options = {
       hide_root_folder = true,
    },
    git = {
-      enable = false,
+      enable = true,
       ignore = true,
    },
    actions = {
@@ -73,8 +72,11 @@ local options = {
       },
    },
    renderer = {
+      highlight_git = true,
+      highlight_opened_files = "none",
+      add_trailing  = false,
       indent_markers = {
-         enable = false,
+         enable = true,
       },
    },
 }
