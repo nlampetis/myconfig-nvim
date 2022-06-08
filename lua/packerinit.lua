@@ -87,8 +87,29 @@ return require('packer').startup(function()
           "emilienlemaire/clang-tidy.nvim"
         }
 
+        --auto comment uncomment
         use { "preservim/nerdcommenter", as = "nerdcommenter"}
 
-        use {"kkoomen/vim-doge", as="vimdoge"}
+
+        -- folding and unfolding of code blocks
+        use{ 'anuvyklack/pretty-fold.nvim',
+          requires = 'anuvyklack/nvim-keymap-amend', -- only for preview
+          config = function()
+            require('pretty-fold').setup()
+            require('pretty-fold.preview').setup()
+          end
+        }
+
+        -- auto doc generator
+        use {
+            'kkoomen/vim-doge',
+            run = ':call doge#install()',
+            config = function()
+              vim.g.doge_doc_standard_python = 'google'
+            end,
+          }
+
+        -- close parentheses pairs
+        use {"jiangmiao/auto-pairs"}
 end)
 

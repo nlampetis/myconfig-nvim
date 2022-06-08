@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\tet_voithos_4\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\airline-themes",
     url = "https://github.com/vim-airline/vim-airline-themes"
   },
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "C:\\Users\\tet_voithos_4\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\auto-pairs",
+    url = "https://github.com/jiangmiao/auto-pairs"
+  },
   ["barbar.nvim"] = {
     loaded = true,
     path = "C:\\Users\\tet_voithos_4\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\barbar.nvim",
@@ -154,6 +159,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\tet_voithos_4\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-keymap-amend"] = {
+    loaded = true,
+    path = "C:\\Users\\tet_voithos_4\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-keymap-amend",
+    url = "https://github.com/anuvyklack/nvim-keymap-amend"
+  },
   ["nvim-lsp-installer"] = {
     loaded = true,
     path = "C:\\Users\\tet_voithos_4\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lsp-installer",
@@ -194,6 +204,12 @@ _G.packer_plugins = {
     path = "C:\\Users\\tet_voithos_4\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["pretty-fold.nvim"] = {
+    config = { "\27LJ\2\na\0\0\3\0\4\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\24pretty-fold.preview\nsetup\16pretty-fold\frequire\0" },
+    loaded = true,
+    path = "C:\\Users\\tet_voithos_4\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\pretty-fold.nvim",
+    url = "https://github.com/anuvyklack/pretty-fold.nvim"
+  },
   tagbar = {
     loaded = true,
     path = "C:\\Users\\tet_voithos_4\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tagbar",
@@ -203,6 +219,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\tet_voithos_4\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-doge"] = {
+    config = { "\27LJ\2\nA\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\vgoogle\29doge_doc_standard_python\6g\bvim\0" },
+    loaded = true,
+    path = "C:\\Users\\tet_voithos_4\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-doge",
+    url = "https://github.com/kkoomen/vim-doge"
   },
   ["vim-fugitive"] = {
     loaded = true,
@@ -214,11 +236,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\tet_voithos_4\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-startify",
     url = "https://github.com/mhinz/vim-startify"
   },
-  vimdoge = {
-    loaded = true,
-    path = "C:\\Users\\tet_voithos_4\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vimdoge",
-    url = "https://github.com/kkoomen/vim-doge"
-  },
   whichkey = {
     config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0" },
     loaded = true,
@@ -228,10 +245,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: pretty-fold.nvim
+time([[Config for pretty-fold.nvim]], true)
+try_loadstring("\27LJ\2\na\0\0\3\0\4\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\24pretty-fold.preview\nsetup\16pretty-fold\frequire\0", "config", "pretty-fold.nvim")
+time([[Config for pretty-fold.nvim]], false)
 -- Config for: whichkey
 time([[Config for whichkey]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "whichkey")
 time([[Config for whichkey]], false)
+-- Config for: vim-doge
+time([[Config for vim-doge]], true)
+try_loadstring("\27LJ\2\nA\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\vgoogle\29doge_doc_standard_python\6g\bvim\0", "config", "vim-doge")
+time([[Config for vim-doge]], false)
 if should_profile then save_profiles() end
 
 end)
