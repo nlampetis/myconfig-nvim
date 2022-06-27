@@ -3,11 +3,11 @@ local api = vim.api
 local opt = vim.opt
 local g = vim.g
 
-local themes = { 'dracula', 'gruvbox', 'onedark' }
+local themes = { 'dracula', 'gruvbox', 'onedark', 'nord', 'iceberg' }
 
 
 -- use theme 1, 2, 3, ...
-api.nvim_command([[colorscheme ]] .. themes[1])
+api.nvim_command([[colorscheme ]] .. themes[4])
 
 --require('plugins.onedark')
 --require('onedark').load()
@@ -19,7 +19,7 @@ g.toggle_theme_icon = "   "
 
 -- vim.cmd("set filetype true")
 -- airline globals
-g.airline_theme = themes[1]
+g.airline_theme = themes[4]
 g.airline_powerline_fonts = 1
 vim.cmd("let g:airline#extensions#tabline#enabled = 1")
 vim.cmd("let g:airline#extensions#tabline#formatter = 'unique_tail'")
@@ -48,7 +48,7 @@ opt.fillchars = { eob = " " }
 
 -- font
 -- opt.guifont= "3270Narrow NF:h12:w60"
-opt.guifont = "Hack:h10:w60"
+opt.guifont = "Hack:h11:w60"
 
 --
 opt.hidden = true

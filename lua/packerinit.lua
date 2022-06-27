@@ -1,115 +1,133 @@
 return require('packer').startup(function()
-	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
+  -- Packer can manage itself
+  use 'wbthomason/packer.nvim'
 
-	-- dracula theme
-	use {'dracula/vim', as ='dracula'}
+  -- dracula theme
+  use { 'dracula/vim', as = 'dracula' }
 
-        --icons
-        use {'kyazdani42/nvim-web-devicons'}
+  -- iceberg
+  use { 'cocopon/iceberg.vim' , as = 'iceberg' } 
 
-        -- gruvbox theme
-        use {'morhetz/gruvbox', as='gruvbox'}
-        
-        -- onedark theme
-        use {'navarasu/onedark.nvim', as='onedark'}
+  -- nord
+  use { 'arcticicestudio/nord-vim' , as = 'nord' } 
 
-        -- vim airline
-        use {'vim-airline/vim-airline', as ='airline'}
-        use {'vim-airline/vim-airline-themes', as = 'airline-themes'}
+  --icons
+  use { 'kyazdani42/nvim-web-devicons' }
 
-        -- nvimtree
-        use {'kyazdani42/nvim-tree.lua',as='nvimtree'}
+  -- gruvbox theme
+  use { 'morhetz/gruvbox', as = 'gruvbox' }
 
-        -- telescope
-        use {
-          'nvim-telescope/telescope.nvim',
-          requires = { {'nvim-lua/plenary.nvim'} }
-        }
+  -- onedark theme
+  use { 'navarasu/onedark.nvim', as = 'onedark' }
 
-        -- which key
-        use {"folke/which-key.nvim", as = 'whichkey',
-        config = function()
-           require("which-key").setup {
-              -- your configuration comes here
-              -- or leave it empty to use the default settings
-              -- refer to the configuration section below
-           }
-          end
-        }
+  -- vim airline
+  use { 'vim-airline/vim-airline', as = 'airline' }
+  use { 'vim-airline/vim-airline-themes', as = 'airline-themes' }
 
-        -- git
-        use {'tpope/vim-fugitive'}
+  -- nvimtree
+  use { 'kyazdani42/nvim-tree.lua', as = 'nvimtree' }
 
-        -- lsp
-        use {'neovim/nvim-lspconfig'}
+  -- telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { { 'nvim-lua/plenary.nvim' } }
+  }
 
-        -- cmp
-        use {'hrsh7th/cmp-nvim-lsp'}
-        use {'hrsh7th/cmp-buffer'}
-        use {'hrsh7th/cmp-path'}
-        use {'hrsh7th/cmp-cmdline'}
-        use {'hrsh7th/nvim-cmp'}
-        -- with luasnip
-        use {'L3MON4D3/LuaSnip'}
-        use {'saadparwaiz1/cmp_luasnip'}
-        -- snippets for luasnip import
-        use {'rafamadriz/friendly-snippets'}
+  -- which key
+  use { "folke/which-key.nvim", as = 'whichkey',
+    config = function()
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 
-        -- cmp customization
-        use {'onsails/lspkind.nvim'}
+  -- git
+  use { 'tpope/vim-fugitive' }
 
-        -- treesitter highlighting
-        use {
-                'nvim-treesitter/nvim-treesitter',
-                run = ':TSUpdate'
-            }
+  -- lsp
+  use { 'neovim/nvim-lspconfig' }
 
-        -- blankline indent
-        use {'lukas-reineke/indent-blankline.nvim'}
+  -- cmp
+  use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'hrsh7th/cmp-buffer' }
+  use { 'hrsh7th/cmp-path' }
+  use { 'hrsh7th/cmp-cmdline' }
+  use { 'hrsh7th/nvim-cmp' }
+  -- with luasnip
+  use { 'L3MON4D3/LuaSnip' }
+  use { 'saadparwaiz1/cmp_luasnip' }
+  -- snippets for luasnip import
+  use { 'rafamadriz/friendly-snippets' }
 
-        -- tagbar
-        use {'preservim/tagbar'}
+  -- cmp customization
+  use { 'onsails/lspkind.nvim' }
 
-        -- barbar
-        use {'romgrk/barbar.nvim'}
+  -- treesitter highlighting
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
 
-        --startify
-        use {'mhinz/vim-startify'}
+  -- blankline indent
+  use { 'lukas-reineke/indent-blankline.nvim' }
 
-        -- lsp install
-        use {
-            "williamboman/nvim-lsp-installer",
-        }
+  -- tagbar
+  use { 'preservim/tagbar' }
 
-        -- clang-tidy for lsp
-        use{
-          "emilienlemaire/clang-tidy.nvim"
-        }
+  -- barbar
+  use { 'romgrk/barbar.nvim' }
 
-        --auto comment uncomment
-        use { "preservim/nerdcommenter", as = "nerdcommenter"}
+  --startify
+  use { 'mhinz/vim-startify' }
+
+  -- lsp install
+  use {
+    "williamboman/nvim-lsp-installer",
+  }
+
+  -- clang-tidy for lsp
+  use {
+    "emilienlemaire/clang-tidy.nvim"
+  }
+
+  --auto comment uncomment
+  use { "preservim/nerdcommenter", as = "nerdcommenter" }
 
 
-        -- folding and unfolding of code blocks
-        use{ 'anuvyklack/pretty-fold.nvim',
-          requires = 'anuvyklack/nvim-keymap-amend', -- only for preview
-          config = function()
-            require('pretty-fold').setup()
-            require('pretty-fold.preview').setup()
-          end
-        }
+  -- folding and unfolding of code blocks
+  use { 'anuvyklack/pretty-fold.nvim',
+    requires = 'anuvyklack/nvim-keymap-amend', -- only for preview
+    config = function()
+      require('pretty-fold').setup()
+      require('pretty-fold.preview').setup()
+    end
+  }
 
-        -- auto doc generator
-        use {
-            'kkoomen/vim-doge',
-            run = ':call doge#install()',
-            config = function()
-              vim.g.doge_doc_standard_python = 'google'
-            end,
-          }
+  --[[        -- auto doc generator]]
+  --[[use {]]
+  --[['kkoomen/vim-doge',]]
+  --[[run = ':call doge#install()',]]
+  --[[config = function()]]
+  --[[vim.g.doge_doc_standard_python = 'google']]
+  --[[end,]]
+  --[[}]]
 
-        -- close parentheses pairs
-        use {"jiangmiao/auto-pairs"}
+  -- close parentheses pairs
+  use { "jiangmiao/auto-pairs" }
+
+
+  -- documentation generator
+  use {
+    "danymat/neogen",
+    config = function()
+      require('neogen').setup {}
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+    -- Uncomment next line if you want to follow only stable versions
+    -- tag = "*"
+  }
+
 end)
-

@@ -3,9 +3,9 @@ local win = require "lspconfig.ui.windows"
 local _default_opts = win.default_opts
 
 win.default_opts = function(options)
-   local opts = _default_opts(options)
-   opts.border = "double"
-   return opts
+  local opts = _default_opts(options)
+  opts.border = "double"
+  return opts
 end
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -74,24 +74,41 @@ require 'lspconfig'.sumneko_lua.setup {
   },
 }
 
+require 'lspconfig'.rust_analyzer.setup {
+
+  on_attach = on_attach,
+  settings = {
+    ["rust-analyzer"] = {
+      assist = {
+        importGranularity = "module",
+        importPrefix = "self",
+      },
+      cargo = {
+        loadOutDirsFromCheck = true
+      },
+      procMacro = {
+        enable = true
+      },
+    }
+  }
+}
+
 require 'lspconfig'.clangd.setup {
   on_attach = on_attach,
   cmd = {
     -- see clangd --help-hidden
-"clangd",
-     "--background-index",
-     "-j=12",
-     "--query-driver=/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
-     "--clang-tidy",
-     "--clang-tidy-checks=*",
-     "--all-scopes-completion",
-     "--cross-file-rename",
-     "--completion-style=detailed",
-     "--header-insertion-decorators",
-     "--header-insertion=iwyu",
-     "--pch-storage=memory",
+    "clangd",
+    "--background-index",
+    "-j=12",
+    "--query-driver=/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
+    "--clang-tidy",
+    "--clang-tidy-checks=*",
+    "--all-scopes-completion",
+    "--cross-file-rename",
+    "--completion-style=detailed",
+    "--header-insertion-decorators",
+    "--header-insertion=iwyu",
+    "--pch-storage=memory",
   }
 
 }
-
-
