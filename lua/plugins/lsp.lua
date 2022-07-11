@@ -110,5 +110,13 @@ require 'lspconfig'.clangd.setup {
     "--header-insertion=iwyu",
     "--pch-storage=memory",
   }
+}
 
+require 'lspconfig'.jdtls.setup{
+  on_attach = on_attach,
+  cmd = {
+    'jdtls',
+    '-configuration', '$JDTLS_HOME/config_win/',
+    '-data', 'C:/Users/tet_voithos_4/AppData/Local/nvim-data/lsp_servers/jdtls/workspace'
+  }
 }
