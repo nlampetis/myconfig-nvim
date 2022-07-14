@@ -83,6 +83,9 @@ return require('packer').startup(function()
   --startify
   use { 'mhinz/vim-startify' }
 
+  --session manager
+  use {'Shatur/neovim-session-manager'}
+
   -- lsp install
   use {
     "williamboman/nvim-lsp-installer",
@@ -129,5 +132,8 @@ return require('packer').startup(function()
     -- Uncomment next line if you want to follow only stable versions
     -- tag = "*"
   }
+
+  --use {'mfussenegger/nvim-jdtls'}
+
 
 end)

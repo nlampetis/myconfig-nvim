@@ -112,11 +112,57 @@ require 'lspconfig'.clangd.setup {
   }
 }
 
-require 'lspconfig'.jdtls.setup{
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+local workspace_dir_temp = "\\workspace\\" .. project_name
+
+local lspcutil = require 'lspconfig.util'
+local my_root_files = {
+  -- Single-module projects
+  {
+    '.vscode',
+    '.git', -- git
+    'build.xml', -- Ant
+    'pom.xml', -- Maven
+    'settings.gradle', -- Gradle
+    'settings.gradle.kts', -- Gradle
+    'haha.txt',
+  },
+  -- Multi-module projects
+  { 'build.gradle', 'build.gradle.kts' },
+}
+
+
+local jdtls_env = os.getenv('JDTLS_HOME')
+local jar_path = jdtls_env .. '\\plugins\\org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar'
+local workspace_dir = jdtls_env .. workspace_dir_temp
+local config_path = jdtls_env .. '\\config_win'
+
+
+require 'lspconfig'.jdtls.setup {
   on_attach = on_attach,
   cmd = {
-    'jdtls',
-    '-configuration', '$JDTLS_HOME/config_win/',
-    '-data', 'C:/Users/tet_voithos_4/AppData/Local/nvim-data/lsp_servers/jdtls/workspace'
-  }
+
+    'java',
+
+    '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+    '-Dosgi.bundles.defaultStartLevel=4',
+    '-Declipse.product=org.eclipse.jdt.ls.core.product',
+    '-Dlog.protocol=true',
+    '-Dlog.level=ALL',
+    '-Xms1g',
+    --'--add-modules=ALL-SYSTEM',
+    '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+    '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+    '-jar', jar_path,
+    '-configuration', config_path,
+    '-data', workspace_dir
+  },
+  root_dir = function(fname)
+    for _, patterns in ipairs(my_root_files) do
+      local root = lspcutil.root_pattern(unpack(patterns))(fname)
+      if root then
+        return root
+      end
+    end
+  end,
 }

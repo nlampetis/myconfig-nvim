@@ -27,6 +27,10 @@ function cmp_window:has_scrollbar()
 end
 
 local options = {
+    disable_netrw = true,
+    hijack_cursor = true,
+    --hijack_netrw = true,
+    hijack_unnamed_buffer_when_opening = true,
    window = {
       completion = {
          --border = border "CmpBorder",
