@@ -53,8 +53,8 @@ vim.g.bufferline = {
   clickable = true,
 
   -- Excludes buffers from the tabline
-  exclude_ft = { 'javascript' },
-  exclude_name = { 'package.json' },
+  --exclude_ft = { 'javascript' },
+  --exclude_name = { 'package.json' },
 
   -- Enable/disable icons
   -- if set to 'numbers', will show buffer index in the tabline
@@ -100,21 +100,42 @@ vim.g.bufferline = {
   -- where X is the buffer number. But only a static string is accepted here.
   no_name_title = nil,
 }
+--[[
+   [
+   [vim.api.nvim_create_autocmd('BufWinEnter', {
+   [  pattern = '*',
+   [  callback = function()
+   [    if vim.bo.filetype == 'NvimTree' then
+   [      require 'bufferline.state'.set_offset(26, 'FileTree')
+   [    end
+   [  end
+   [})
+   [
+   [vim.api.nvim_create_autocmd('BufWinLeave', {
+   [  pattern = '*',
+   [  callback = function()
+   [    if vim.fn.expand('<afile>'):match('NvimTree') then
+   [      require 'bufferline.state'.set_offset(0)
+   [    end
+   [  end
+   [})
+   ]]
 
-vim.api.nvim_create_autocmd('BufWinEnter', {
-  pattern = '*',
-  callback = function()
-    if vim.bo.filetype == 'NvimTree' then
-      require 'bufferline.state'.set_offset(26, 'FileTree')
-    end
-  end
-})
+local nvim_tree_events = require('nvim-tree.events')
+local bufferline_state = require('bufferline.state')
 
-vim.api.nvim_create_autocmd('BufWinLeave', {
-  pattern = '*',
-  callback = function()
-    if vim.fn.expand('<afile>'):match('NvimTree') then
-      require 'bufferline.state'.set_offset(0)
-    end
-  end
-})
+local function get_tree_size()
+  return require'nvim-tree.view'.View.width
+end
+
+nvim_tree_events.subscribe('TreeOpen', function()
+  bufferline_state.set_offset(get_tree_size(), 'Files')
+end)
+
+nvim_tree_events.subscribe('Resize', function()
+  bufferline_state.set_offset(get_tree_size())
+end)
+
+nvim_tree_events.subscribe('TreeClose', function()
+  bufferline_state.set_offset(0)
+end)

@@ -84,7 +84,7 @@ return require('packer').startup(function()
   use { 'mhinz/vim-startify' }
 
   --session manager
-  use {'Shatur/neovim-session-manager'}
+  --use {'Shatur/neovim-session-manager'}
 
   -- lsp install
   use {

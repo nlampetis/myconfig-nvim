@@ -144,7 +144,8 @@ local workspace_dir = jdtls_env .. workspace_dir_temp
 local config_path = jdtls_env .. '\\config_win'
 
 -- require 'lspconfig'.eslint.setup {}
-require 'lspconfig'.tsserver.setup {}
+require 'lspconfig'.tsserver.setup {
+}
 
 require 'lspconfig'.jdtls.setup {
   on_attach = on_attach,
@@ -169,7 +170,7 @@ require 'lspconfig'.jdtls.setup {
     for _, patterns in ipairs(my_root_files) do
       local root = lspcutil.root_pattern(unpack(patterns))(fname)
       if root then
-        return root
+       return root
       end
     end
   end,

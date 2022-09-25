@@ -51,8 +51,8 @@ opt.smartindent = true
 opt.fillchars = { eob = " " }
 
 -- font
--- opt.guifont= "3270Narrow NF:h12:w60"
-opt.guifont = "Hack:h11:w60"
+ --opt.guifont= "3270Narrow NF:h12"
+opt.guifont = "Hack:h11"
 
 --
 opt.hidden = true
