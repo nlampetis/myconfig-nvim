@@ -59,6 +59,7 @@ return require('packer').startup(function()
   -- with luasnip
   use { 'L3MON4D3/LuaSnip' }
   use { 'saadparwaiz1/cmp_luasnip' }
+  use { 'honza/vim-snippets' }
   -- snippets for luasnip import
   use { 'rafamadriz/friendly-snippets' }
 
@@ -102,10 +103,10 @@ return require('packer').startup(function()
 
   -- folding and unfolding of code blocks
   use { 'anuvyklack/pretty-fold.nvim',
-    requires = 'anuvyklack/nvim-keymap-amend', -- only for preview
+    --requires = 'anuvyklack/nvim-keymap-amend', -- only for preview
     config = function()
       require('pretty-fold').setup()
-      require('pretty-fold.preview').setup()
+      --require('pretty-fold.preview').setup()
     end
   }
 

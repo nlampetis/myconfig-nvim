@@ -143,9 +143,8 @@ local jar_path = jdtls_env .. '\\plugins\\org.eclipse.equinox.launcher_1.6.400.v
 local workspace_dir = jdtls_env .. workspace_dir_temp
 local config_path = jdtls_env .. '\\config_win'
 
--- require 'lspconfig'.eslint.setup {}
-require 'lspconfig'.tsserver.setup {
-}
+require 'lspconfig'.eslint.setup {}
+require 'lspconfig'.tsserver.setup {}
 
 require 'lspconfig'.jdtls.setup {
   on_attach = on_attach,

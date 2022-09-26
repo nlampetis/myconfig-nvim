@@ -4,7 +4,8 @@ local lspkind = require('lspkind')
 if not present then
    return
 end
-require("luasnip.loaders.from_vscode").lazy_load()
+
+
 vim.opt.completeopt = "menuone,noselect"
 
 local function border(hl_name)
@@ -45,7 +46,9 @@ local options = {
    },
    snippet = {
       expand = function(args)
-         require("luasnip").lsp_expand(args.body)
+        require("luasnip").lsp_expand(args.body);
+        --local ls = require("luasnip");
+        --ls.lsp_expand(args.body)
       end,
    },
    formatting = {

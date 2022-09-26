@@ -15,6 +15,7 @@ require('plugins.blankline')
 require('plugins.onedark')
 require('plugins.barbar')
 require('plugins.session-plugins')
+require('plugins.luasnip')
 -- require('onedark').load()
 --require('plugins.whichkey')
 

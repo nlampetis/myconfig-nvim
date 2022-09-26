@@ -52,7 +52,7 @@ opt.fillchars = { eob = " " }
 
 -- font
  --opt.guifont= "3270Narrow NF:h12"
-opt.guifont = "Hack:h11"
+opt.guifont = "Hack:h11:cANSI"
 
 --
 opt.hidden = true
