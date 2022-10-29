@@ -86,7 +86,8 @@ local function jdocsnip(args, _, old_state)
   end
 
   local insert = 2
-  for indx, arg in ipairs(vim.split(args[2][1], ", ", true)) do
+  --for indx, arg in ipairs(vim.split(args[2][1], ", ", true)) do
+  for _, arg in ipairs(vim.split(args[2][1], ", ", true)) do
     -- Get actual name parameter.
     arg = vim.split(arg, " ", true)[2]
     if arg then
@@ -157,12 +158,12 @@ local function bash(_, _, command)
   return res
 end
 
--- Returns a snippet_node wrapped around an insert_node whose initial
--- text value is set to the current date in the desired format.
-local date_input = function(args, state, fmt)
-  local fmt = fmt or "%Y-%m-%d"
-  return sn(nil, i(1, os.date(fmt)))
-end
+---- Returns a snippet_node wrapped around an insert_node whose initial
+---- text value is set to the current date in the desired format.
+--local date_input = function(args, state, fmt)
+  --local fmt = fmt or "%Y-%m-%d"
+  --return sn(nil, i(1, os.date(fmt)))
+--end
 
 ls.snippets = {
   -- When trying to expand a snippet, luasnip first searches the tables for

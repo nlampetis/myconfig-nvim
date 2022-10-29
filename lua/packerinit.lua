@@ -30,7 +30,11 @@ return require('packer').startup(function()
   -- telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } }
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'BurntSushi/ripgrep' }
+    }
+
   }
 
   -- which key
@@ -134,7 +138,9 @@ return require('packer').startup(function()
     -- tag = "*"
   }
 
-  --use {'mfussenegger/nvim-jdtls'}
+  use {'mfussenegger/nvim-jdtls'}
+
+  use {'mfussenegger/nvim-dap'}
 
 
 end)
