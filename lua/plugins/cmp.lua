@@ -1,4 +1,5 @@
 local present, cmp = pcall(require, "cmp")
+local cmp_autopairs = require('nvim-autopairs.completion.cmp');
 local lspkind = require('lspkind')
 
 if not present then
@@ -26,6 +27,11 @@ local cmp_window = require "cmp.utils.window"
 function cmp_window:has_scrollbar()
   return false
 end
+
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 
 local options = {
   disable_netrw = true,

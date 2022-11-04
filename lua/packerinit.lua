@@ -124,7 +124,10 @@ return require('packer').startup(function()
   --[[}]]
 
   -- close parentheses pairs
-  use { "jiangmiao/auto-pairs" }
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
 
 
   -- documentation generator
