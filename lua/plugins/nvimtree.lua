@@ -49,7 +49,7 @@ local options = {
   },
   disable_netrw = true,
   hijack_netrw = true,
-  ignore_ft_on_setup = { "dashboard" },
+  --ignore_ft_on_setup = { "dashboard" },
   open_on_tab = true,
   hijack_cursor = false,
   hijack_unnamed_buffer_when_opening = true,
@@ -60,9 +60,9 @@ local options = {
     update_cwd = false,
   },
   view = {
-    adaptive_size = false,
+    adaptive_size = true,
     side = "left",
-    width = 30,
+    width = 25,
     hide_root_folder = true,
   },
   git = {
@@ -128,5 +128,16 @@ local options = {
   },
 }
 
+local config_group = vim.api.nvim_create_augroup('MyConfigGroup', {clear = true}) -- A global group for all your config autocommands
+
+vim.api.nvim_create_autocmd({ 'SessionLoadPost' }, {
+  group = config_group,
+  command = ":NvimTreeToggle",
+})
+
+vim.api.nvim_create_autocmd({ 'SessionLoadPost' }, {
+  group = config_group,
+  command = ":NvimTreeOpen",
+})
 
 nvimtree.setup(options)
