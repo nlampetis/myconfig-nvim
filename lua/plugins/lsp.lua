@@ -160,7 +160,8 @@ require 'lspconfig'.cssls.setup {
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir_temp = "\\workspace\\" .. project_name
 
-local jdtls_env = 'C:\\Users\\nlamp\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls'
+local local_appdata = os.getenv("LOCALAPPDATA")
+local jdtls_env = local_appdata .. '\\nvim-data\\mason\\packages\\jdtls'
 local jar_path = jdtls_env .. '\\plugins\\org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar'
 local lombok_path = jdtls_env .. '\\lombok.jar'
 local workspace_dir = jdtls_env .. workspace_dir_temp
