@@ -12,15 +12,6 @@ api.nvim_command([[colorscheme ]] .. themes[3])
 --require('plugins.onedark')
 --require('onedark').load()
 
--- use filetype.lua instead of filetype.vim
-g.did_load_filetypes = 0
-g.do_filetype_lua = 1
-g.toggle_theme_icon = "   "
-
--- startify options
--- i will delete
-
-
 -- vim.cmd("set filetype true")
 -- airline globals
 g.airline_theme = themes[3]

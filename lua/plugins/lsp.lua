@@ -160,24 +160,6 @@ require 'lspconfig'.cssls.setup {
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir_temp = "\\workspace\\" .. project_name
 
---local lspcutil = require 'lspconfig.util'
-local my_root_files = {
-  -- Single-module projects
-  {
-    '.vscode',
-    '.git', -- git
-    'build.xml', -- Ant
-    'pom.xml', -- Maven
-    'settings.gradle', -- Gradle
-    'settings.gradle.kts', -- Gradle
-    'haha.txt',
-  },
-
-  -- Multi-module projects
-  { 'build.gradle', 'build.gradle.kts' },
-
-}
-
 local jdtls_env = 'C:\\Users\\nlamp\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls'
 local jar_path = jdtls_env .. '\\plugins\\org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar'
 local lombok_path = jdtls_env .. '\\lombok.jar'

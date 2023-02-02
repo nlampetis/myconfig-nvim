@@ -8,7 +8,8 @@ require("options")
 require("mappings")
 
 -- -- plugins config files
--- lsp
+-- lsp-
+require('plugins.mason')
 require('plugins.lsp')
 require('plugins.cmp')
 require('plugins.treesitter')
