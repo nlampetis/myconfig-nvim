@@ -73,7 +73,10 @@ return require('packer').startup(function()
   -- treesitter highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    run = ':TSUpdate',
+    --highlight ={
+      --disable = {"html"},
+    --}
   }
 
   -- blankline indent
