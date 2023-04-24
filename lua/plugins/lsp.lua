@@ -41,7 +41,7 @@ vim.api.nvim_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()
 vim.api.nvim_set_keymap('n', '<space>cn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<space>fo', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<space>fo', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -76,7 +76,7 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-require 'lspconfig'.sumneko_lua.setup {
+require 'lspconfig'.lua_ls.setup {
   on_attach = on_attach,
   settings = {
     Lua = {
@@ -93,6 +93,7 @@ require 'lspconfig'.sumneko_lua.setup {
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
       },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
@@ -102,24 +103,24 @@ require 'lspconfig'.sumneko_lua.setup {
   },
 }
 
-require 'lspconfig'.rust_analyzer.setup {
+--require 'lspconfig'.rust_analyzer.setup {
 
-  on_attach = on_attach,
-  settings = {
-    ["rust-analyzer"] = {
-      assist = {
-        importGranularity = "module",
-        importPrefix = "self",
-      },
-      cargo = {
-        loadOutDirsFromCheck = true
-      },
-      procMacro = {
-        enable = true
-      },
-    }
-  }
-}
+  --on_attach = on_attach,
+  --settings = {
+    --["rust-analyzer"] = {
+      --assist = {
+        --importGranularity = "module",
+        --importPrefix = "self",
+      --},
+      --cargo = {
+        --loadOutDirsFromCheck = true
+      --},
+      --procMacro = {
+        --enable = true
+      --},
+    --}
+  --}
+--}
 
 require 'lspconfig'.clangd.setup {
   on_attach = on_attach,
@@ -188,3 +189,5 @@ require 'lspconfig'.jdtls.setup {
     '-data', workspace_dir,
   },
 }
+
+require'lspconfig'.lemminx.setup{}

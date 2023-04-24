@@ -14,6 +14,7 @@ require('plugins.lsp')
 require('plugins.cmp')
 require('plugins.treesitter')
 require('plugins.luasnip')
+require('plugins.rust-tools')
 
 -- ui
 require('plugins.nvimtree')

@@ -52,7 +52,7 @@ local options = {
   --ignore_ft_on_setup = { "dashboard" },
   open_on_tab = true,
   hijack_cursor = false,
-  hijack_unnamed_buffer_when_opening = true,
+  hijack_unnamed_buffer_when_opening = false,
   update_cwd = true,
   reload_on_bufenter = true,
   update_focused_file = {
@@ -67,7 +67,7 @@ local options = {
   },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
   },
   actions = {
     open_file = {

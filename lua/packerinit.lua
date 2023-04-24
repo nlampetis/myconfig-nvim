@@ -58,6 +58,8 @@ return require('packer').startup(function()
   use { 'hrsh7th/cmp-cmdline' }
   use { 'hrsh7th/nvim-cmp' }
 
+  --rust specific
+  use { 'simrat39/rust-tools.nvim' }
   -- lspkind cmp customization
   use {'onsails/lspkind.nvim'}
 
