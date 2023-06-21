@@ -63,7 +63,6 @@ local options = {
     adaptive_size = true,
     side = "left",
     width = 25,
-    hide_root_folder = true,
   },
   git = {
     enable = true,
@@ -90,6 +89,7 @@ local options = {
     highlight_git          = true,
     highlight_opened_files = "none",
     add_trailing           = false,
+    root_folder_label      = false,
     indent_markers         = {
       enable = true,
     },

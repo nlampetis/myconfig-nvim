@@ -2,6 +2,7 @@
 vim.api.nvim_set_keymap("n", " ", "<Nop>", {}) -- map nothing to leader key (space)
 vim.api.nvim_set_keymap("v", " ", "<Nop>", {}) -- map nothing to leader key (space)
 vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true }) -- map jk to esc
+vim.api.nvim_set_keymap("n", "<C-l>", ":nohl<cr>", {noremap = true})
 
 vim.api.nvim_set_keymap("n", "<leader>q", ":q<cr>", { noremap = true }) -- safe quit
 vim.api.nvim_set_keymap("n", "<leader>wq", ":wq<cr>", { noremap = true }) -- save and quit
@@ -21,7 +22,6 @@ vim.api.nvim_set_keymap("n", "<A-k>", "<C-w>k", { noremap = true })
 vim.api.nvim_set_keymap("n", "<A-j>", "<C-w>j", { noremap = true })
 vim.api.nvim_set_keymap("n", "<A-h>", "<C-w>h", { noremap = true })
 vim.api.nvim_set_keymap("n", "<A-l>", "<C-w>l", { noremap = true })
-
 
 
 -- nvimtree keymaps
